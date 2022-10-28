@@ -17,5 +17,5 @@
 ** Important : Never copy paste. Since you will create the project from scratch, it will take time, but it will allow you to reinforce the subject. **
 
 ---
-*** Thank you for viewing... ***
-*** Samet Yasin AKTÜRK ***
+* ** Thank you for viewing... ** *
+* ** Samet Yasin AKTÜRK ** *
