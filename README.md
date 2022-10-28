@@ -1,7 +1,7 @@
 ## day4Homework from Kodlama.io (2022) Software Developer Bootcamp by [Engin DEMİROĞ](https://github.com/engindemirog) - Java
 
-1. We want to write a project where we bring candidates' coding skills together with employers.
-2. Project name: Kodlama.io.Devs
+* We want to write a project where we bring candidates' coding skills together with employers.
+* Project name: Kodlama.io.Devs
 
 ---
 
@@ -10,9 +10,9 @@
 
 ---
 
-* Write codes that can add, delete, update, list, and fetch programming languages (C#, Java, Python). Make it completely in memory.
-* Names cannot be repeated.
-* Programming language cannot be left blank. (Solve algorithmically by writing code without using validation)
+1. Write codes that can add, delete, update, list, and fetch programming languages (C#, Java, Python). Make it completely in memory.
+2. Names cannot be repeated.
+3. Programming language cannot be left blank. (Solve algorithmically by writing code without using validation)
 
 ** Important : Never copy paste. Since you will create the project from scratch, it will take time, but it will allow you to reinforce the subject. **
 
