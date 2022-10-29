@@ -18,10 +18,39 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
 		programmingLanguages.add(new ProgrammingLanguage(2, "Java"));
 		programmingLanguages.add(new ProgrammingLanguage(3, "Python"));
 	}
-
+	
 	@Override
 	public List<ProgrammingLanguage> getAll() {
 		return programmingLanguages;
 	}
+
+	@Override
+	public void add(ProgrammingLanguage programmingLanguage) {
+		programmingLanguages.add(programmingLanguage);
+	}
+	
+	@Override
+	public void delete(int id) {
+		for(ProgrammingLanguage pLanguage : programmingLanguages) {
+			if(pLanguage.getId() == id) {
+				programmingLanguages.remove(id - 1);
+			}
+		}
+	}
+
+	@Override
+	public void update(ProgrammingLanguage programmingLanguage) {
+		for(ProgrammingLanguage pLanguage : programmingLanguages) {
+			if(pLanguage.getId() == programmingLanguage.getId()) {
+				pLanguage.setName(programmingLanguage.getName());
+			}
+		}
+	}
+
+	@Override
+	public ProgrammingLanguage bring(int indexOfPLanguage) {
+		return programmingLanguages.get(indexOfPLanguage);
+	}
+	
 	
 }
