@@ -25,7 +25,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 
 	@Override
 	public void add(ProgrammingLanguage programmingLanguage) throws Exception {
-		if(isNameExist(programmingLanguage)) throw new Exception("Programming languages' names cannot repeat.");
+		isNameExist(programmingLanguage);
 		if(isIdExist(programmingLanguage.getId())) throw new Exception("Ids cannot repeat.");
 		if(programmingLanguage.getName().isEmpty()) throw new Exception("Programming language cannot be empty.");
 		programmingLanguageRepository.add(programmingLanguage);
@@ -39,18 +39,14 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	
 	@Override
 	public void update(ProgrammingLanguage programmingLanguage) throws Exception {
-		if (!isIdExist(programmingLanguage.getId())) throw new Exception("Id couldn't find.");
-		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
-			if(pLanguage.getId() == programmingLanguage.getId() && pLanguage.getName().equals(programmingLanguage.getName())) {
-				throw new Exception("Id and name are the same. There isn't any change.");
-			}
+		if(!isIdExist(programmingLanguage.getId())) throw new Exception("Id couldn't find.");
+		isNameExist(programmingLanguage);
 		programmingLanguageRepository.update(programmingLanguage);
-		}
 	}
 	
 	@Override
 	public ProgrammingLanguage bring(int id) throws Exception {
-		if (!isIdExist(id)) throw new Exception("Id couldn't find.");
+		if(!isIdExist(id)) throw new Exception("Id couldn't find.");
 		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
 			if(pLanguage.getId() == id) {
 				int indexOfPLanguage = programmingLanguageRepository.getAll().indexOf(pLanguage);
@@ -61,13 +57,18 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 		
 	}
 	
-	public boolean isNameExist(ProgrammingLanguage programmingLanguage) {
+	public void isNameExist(ProgrammingLanguage programmingLanguage) throws Exception {
 		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
-			if(pLanguage.getName().equalsIgnoreCase(programmingLanguage.getName())) {
-				return true;
+			if(pLanguage.getId() != programmingLanguage.getId() && pLanguage.getName().equalsIgnoreCase(programmingLanguage.getName())) {
+				throw new Exception("Programming languages' names cannot repeat.");
+			}
+			else if(pLanguage.getId() == programmingLanguage.getId() && pLanguage.getName().equals(programmingLanguage.getName())) {
+				throw new Exception("Id and name are the same. There isn't any change.");
+			}
+			else if(pLanguage.getId() == programmingLanguage.getId() && !pLanguage.getName().equals(programmingLanguage.getName())) {
+				break;
 			}
 		}
-		return false;
 	}
 	
 	public boolean isIdExist(int id) {
@@ -78,5 +79,5 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 		}
 		return false;
 	}
-
+	
 }
