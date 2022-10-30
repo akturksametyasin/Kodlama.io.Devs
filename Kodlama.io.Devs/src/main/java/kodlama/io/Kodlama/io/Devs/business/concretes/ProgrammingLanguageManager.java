@@ -25,7 +25,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 
 	@Override
 	public void add(ProgrammingLanguage programmingLanguage) throws Exception {
-		isNameExist(programmingLanguage);
+		if(isNameExist(programmingLanguage)) throw new Exception("Programming languages' names cannot repeat.");
 		if(isIdExist(programmingLanguage.getId())) throw new Exception("Ids cannot repeat.");
 		if(programmingLanguage.getName().isEmpty()) throw new Exception("Programming language cannot be empty.");
 		programmingLanguageRepository.add(programmingLanguage);
@@ -40,7 +40,8 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	@Override
 	public void update(ProgrammingLanguage programmingLanguage) throws Exception {
 		if(!isIdExist(programmingLanguage.getId())) throw new Exception("Id couldn't find.");
-		isNameExist(programmingLanguage);
+		if(isNameExist(programmingLanguage)) throw new Exception("Programming languages' names cannot repeat.");
+		if(!isAnyChange(programmingLanguage)) throw new Exception("Id and name are the same. There isn't any change.");
 		programmingLanguageRepository.update(programmingLanguage);
 	}
 	
@@ -54,21 +55,27 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 			}
 		}
 		return null;
-		
 	}
 	
-	public void isNameExist(ProgrammingLanguage programmingLanguage) throws Exception {
+	public boolean isNameExist(ProgrammingLanguage programmingLanguage) {
 		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
 			if(pLanguage.getId() != programmingLanguage.getId() && pLanguage.getName().equalsIgnoreCase(programmingLanguage.getName())) {
-				throw new Exception("Programming languages' names cannot repeat.");
-			}
-			else if(pLanguage.getId() == programmingLanguage.getId() && pLanguage.getName().equals(programmingLanguage.getName())) {
-				throw new Exception("Id and name are the same. There isn't any change.");
-			}
-			else if(pLanguage.getId() == programmingLanguage.getId() && !pLanguage.getName().equals(programmingLanguage.getName())) {
-				break;
+				return true;
 			}
 		}
+		return false;
+	}
+	
+	public boolean isAnyChange(ProgrammingLanguage programmingLanguage) {
+		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
+			if(pLanguage.getId() == programmingLanguage.getId() && !pLanguage.getName().equals(programmingLanguage.getName())) {
+				return true;
+			}
+			else if(pLanguage.getId() == programmingLanguage.getId() && pLanguage.getName().equals(programmingLanguage.getName())) {
+				return false;
+			}
+		}
+		return false;
 	}
 	
 	public boolean isIdExist(int id) {
