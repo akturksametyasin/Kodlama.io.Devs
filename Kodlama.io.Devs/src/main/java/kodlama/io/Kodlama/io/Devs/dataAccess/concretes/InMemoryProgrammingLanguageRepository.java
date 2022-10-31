@@ -30,10 +30,10 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
 	}
 	
 	@Override
-	public void delete(int id) {
+	public void delete(int indexOfLanguage) {
 		for(ProgrammingLanguage pLanguage : programmingLanguages) {
-			if(pLanguage.getId() == id) {
-				programmingLanguages.remove(id - 1);
+			if(pLanguage.getId() == indexOfLanguage) {
+				programmingLanguages.remove(indexOfLanguage);
 			}
 		}
 	}

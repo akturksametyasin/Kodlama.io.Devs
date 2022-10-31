@@ -34,7 +34,13 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	@Override
 	public void delete(int id) throws Exception {
 		if (!isIdExist(id)) throw new Exception("Id couldn't find.");
-		programmingLanguageRepository.delete(id);
+		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
+			if(pLanguage.getId() == id) {
+				int indexOfPLanguage = programmingLanguageRepository.getAll().indexOf(pLanguage);
+				programmingLanguageRepository.delete(indexOfPLanguage);
+			}
+		}
+		
 	}
 	
 	@Override
