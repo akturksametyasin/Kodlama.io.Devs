@@ -33,19 +33,19 @@ public class ProgrammingLanguagesController {
 		programmingLanguageService.add(programmingLanguage);
 	}
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{id}")
 	public void delete(int id) throws Exception {
 		programmingLanguageService.delete(id);
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/update/{id}")
 	public void update(ProgrammingLanguage programmingLanguage) throws Exception{
 		programmingLanguageService.update(programmingLanguage);
 	}
 	
-	@GetMapping("/bring")
-	public ProgrammingLanguage bring(int id) throws Exception {
-		return programmingLanguageService.bring(id);
+	@GetMapping("/get/{id}")
+	public ProgrammingLanguage get(int id) throws Exception {
+		return programmingLanguageService.get(id);
 	}
 	
 }

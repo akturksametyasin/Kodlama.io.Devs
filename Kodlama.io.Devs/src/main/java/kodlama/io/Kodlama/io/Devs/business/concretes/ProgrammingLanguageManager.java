@@ -52,12 +52,12 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	}
 	
 	@Override
-	public ProgrammingLanguage bring(int id) throws Exception {
+	public ProgrammingLanguage get(int id) throws Exception {
 		if(!isIdExist(id)) throw new Exception("Id couldn't find.");
 		for(ProgrammingLanguage pLanguage : programmingLanguageRepository.getAll()) {
 			if(pLanguage.getId() == id) {
 				int indexOfPLanguage = programmingLanguageRepository.getAll().indexOf(pLanguage);
-				return programmingLanguageRepository.bring(indexOfPLanguage);
+				return programmingLanguageRepository.get(indexOfPLanguage);
 			}
 		}
 		return null;

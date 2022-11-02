@@ -9,5 +9,5 @@ public interface ProgrammingLanguageRepository {
 	public void add(ProgrammingLanguage programmingLanguage);
 	public void delete(int id);
 	public void update(ProgrammingLanguage programmingLanguage);
-	ProgrammingLanguage bring(int id);
+	ProgrammingLanguage get(int id);
 }

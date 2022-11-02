@@ -9,5 +9,5 @@ public interface ProgrammingLanguageService {
 	public void add(ProgrammingLanguage programmingLanguage) throws Exception;
 	public void delete(int id) throws Exception;
 	public void update(ProgrammingLanguage programmingLanguage) throws Exception;
-	public ProgrammingLanguage bring(int id) throws Exception;
+	public ProgrammingLanguage get(int id) throws Exception;
 }
