@@ -20,7 +20,7 @@
 2. Names cannot be repeated.
 3. Programming language cannot be left blank. (Solve algorithmically by writing code without using validation)
 
-** Important : Never copy paste. Since you will create the project from scratch, it will take time, but it will allow you to reinforce the subject. **
+**Important : Never copy paste. Since you will create the project from scratch, it will take time, but it will allow you to reinforce the subject.**
 
 ---
 <b><em>Thank you for viewing... <br>
