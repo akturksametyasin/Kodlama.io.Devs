@@ -10,9 +10,9 @@
 
 > * Req 2 : Sub-technologies of programming languages should be able to be added, deleted, updated, listed to the system.\
   For example; 
-  - Java: Spring, JSP\
-  - C#: WPF, ASP.NET\
-  - JavaScript : Vue, React
+  Java: Spring, JSP\
+  C#: WPF, ASP.NET\
+  JavaScript : Vue, React
 
 ---
 
