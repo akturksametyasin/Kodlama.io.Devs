@@ -84,7 +84,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
 	}
 
 	@Override
-	public GetProgrammingLanguageResponse get(int id) throws Exception {
+	public GetProgrammingLanguageResponse getById(int id) throws Exception {
 		if(!isIdExist(id)) {
 			throw new Exception("Id couldn't find.");
 		}

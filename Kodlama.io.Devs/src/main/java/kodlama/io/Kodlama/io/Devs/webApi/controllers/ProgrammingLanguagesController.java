@@ -47,9 +47,9 @@ public class ProgrammingLanguagesController {
 		this.programmingLanguageService.delete(deleteProgrammingLanguageRequest);
 	}
 	
-	@GetMapping("/get")
-	public GetProgrammingLanguageResponse get(int id) throws Exception {
-		return programmingLanguageService.get(id);
+	@GetMapping("/getbyid")
+	public GetProgrammingLanguageResponse getById(int id) throws Exception {
+		return programmingLanguageService.getById(id);
 	}
 	
 	/*
