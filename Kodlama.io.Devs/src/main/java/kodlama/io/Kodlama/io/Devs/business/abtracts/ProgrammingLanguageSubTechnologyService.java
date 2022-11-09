@@ -1,0 +1,19 @@
+package kodlama.io.Kodlama.io.Devs.business.abtracts;
+
+import java.util.List;
+
+import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageSubTechnologyRequests.CreateProgrammingLanguageSubTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageSubTechnologyRequests.DeleteProgrammingLanguageSubTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.requests.programmingLanguageSubTechnologyRequests.UpdateProgrammingLanguageSubTechnologyRequest;
+import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageSubTechnologyResponses.GetAllProgrammingLanguageSubTechnologiesResponse;
+import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageSubTechnologyResponses.GetByProgrammingLanguageIdSubTechnologiesResponse;
+import kodlama.io.Kodlama.io.Devs.business.responses.programmingLanguageSubTechnologyResponses.GetProgrammingLanguageSubTechnologyResponse;
+
+public interface ProgrammingLanguageSubTechnologyService {
+	List<GetAllProgrammingLanguageSubTechnologiesResponse> getall();
+	void add(int programmingLanguageId, CreateProgrammingLanguageSubTechnologyRequest createProgrammingLanguageSubTechnologyRequest) throws Exception;
+	void update(int id, UpdateProgrammingLanguageSubTechnologyRequest updateProgrammingLanguageSubTechnologyRequest) throws Exception;
+	void delete(DeleteProgrammingLanguageSubTechnologyRequest deleteProgrammingLanguageSubTechnologyRequest) throws Exception;
+	List<GetByProgrammingLanguageIdSubTechnologiesResponse> getByProgrammingLanguageId(int programmingLanguageId) throws Exception;
+	List<GetProgrammingLanguageSubTechnologyResponse> getById(int id) throws Exception;
+}
