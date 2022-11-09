@@ -9,10 +9,10 @@
 > * Req 1: Programming languages should be kept in the system.
 
 > * Req 2 : Sub-technologies of programming languages should be able to be added, deleted, updated, listed to the system.\
-  `For example;\ 
+  For example;\ 
   Java: Spring, JSP\
   C#: WPF, ASP.NET\
-  JavaScript : Vue, React`
+  JavaScript : Vue, React
 
 ---
 
